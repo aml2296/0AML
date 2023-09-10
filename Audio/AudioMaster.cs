@@ -30,7 +30,7 @@ public class AudioMaster : MonoBehaviour
             source[0] = sourceTry;
         }
     }
-public void FireRandomRange(int minInclusive, int maxExclusive) => Fire(Random.Range(minInclusive, maxExclusive));
+    public void FireRandomRange(int minInclusive, int maxExclusive) => Fire(Random.Range(minInclusive, maxExclusive));
     public void FireRandom() => FireRandomRange(0, Count);
     public void Fire(string name)
     {
@@ -73,5 +73,13 @@ public void FireRandomRange(int minInclusive, int maxExclusive) => Fire(Random.R
         source[sourceCounter].clip = audioClips[index];
         source[sourceCounter].loop = false;
         source[sourceCounter].Play();
+    }
+    public void Stop()
+    {
+        foreach (var audioSource in source)
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+        }
     }
 }
