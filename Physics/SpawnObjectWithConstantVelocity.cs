@@ -9,12 +9,21 @@ public class SpawnObjectWithConstantVelocity : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] Vector3 constantVelocity;
 
+    private float destroyTime = 0.1f;
     List<GameObject> spawnedObjs = new();
     List<Vector3> spawnedVels = new();
+
+    public bool Gravity { get => useGravity; set => useGravity = value; }
+    [SerializeField] private bool useGravity = true;
 
     public GameObject Fire()
     {
         var obj = GameObject.Instantiate(prefab, source);
+        var rbody = obj.GetComponent<Rigidbody>();
+        if (rbody == null)
+            rbody = obj.GetComponentInChildren<Rigidbody>();
+        if (rbody)
+            rbody.useGravity = useGravity;
         spawnedObjs.Add(obj);
         spawnedVels.Add(constantVelocity);
         StartCoroutine(HandleVelocity(obj, constantVelocity));
@@ -54,5 +63,17 @@ public class SpawnObjectWithConstantVelocity : MonoBehaviour
     {
         for (int i = 0; i < spawnedObjs.Count; i++)
             StopVelCoroutine(i);
+    }
+    public void ClearObjects()
+    {
+        if (destroyTime < 0)
+            destroyTime = 0;
+        GameObject[] objs = spawnedObjs.ToArray();
+        for(int i =0; i < objs.Length; i++)
+        {
+            Destroy(objs[i], destroyTime);
+        }
+        spawnedObjs.Clear();
+        spawnedVels.Clear();
     }
 }

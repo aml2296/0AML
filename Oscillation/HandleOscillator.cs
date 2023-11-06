@@ -39,7 +39,6 @@ public class HandleOscillator : MonoBehaviour
     private void Start()
     {
         Init();
-        initailPos = oscillatorHost == null ? Vector3.zero : oscillatorHost.position;
         if (BeginOnStart)
             oscillator.Begin();
     }
@@ -88,6 +87,7 @@ public class HandleOscillator : MonoBehaviour
     protected void Init()
     {
         oscillator = new OscillStateMachine(oscillatorHost == null ? transform : oscillatorHost);
+        initailPos = oscillatorHost == null ? Vector3.zero : oscillatorHost.position;
         oscillator.SetSpeedAndDist(speed, distance);
         oscillator.Init();
     }
