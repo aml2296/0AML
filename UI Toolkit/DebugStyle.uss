@@ -1,0 +1,41 @@
+.Comment {
+    font-size: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    -unity-font: none;
+    -unity-font-style: normal;
+    border-left-color: rgba(0, 0, 0, 0.65);
+    border-right-color: rgba(0, 0, 0, 0.65);
+    border-top-color: rgba(0, 0, 0, 0.65);
+    border-bottom-color: rgba(0, 0, 0, 0.65);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: rgba(142, 179, 204, 255);
+}
+
+.Error {
+    background-color: rgba(204, 142, 151, 255);
+    -unity-font-style: italic;
+}
+
+.Background {
+    border-left-color: rgba(0, 0, 0, 0.62);
+    border-right-color: rgba(0, 0, 0, 0.62);
+    border-top-color: rgba(0, 0, 0, 0.62);
+    border-bottom-color: rgba(0, 0, 0, 0.62);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: rgba(70, 102, 142, 0.75);
+}

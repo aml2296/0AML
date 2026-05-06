@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class OnTriggerEvent : MonoBehaviour
 {
     [SerializeField] string[] tag = null;
+    [SerializeField] LayerMask mask;
     [SerializeField] UnityEvent OnEnter;
     [SerializeField] UnityEvent OnStay;
     [SerializeField] UnityEvent OnLeave;
